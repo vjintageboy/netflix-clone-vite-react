@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* tailwind css v4.x */
+@import "tailwindcss-animated";
 :root {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -12,7 +14,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
 a {
@@ -44,19 +45,15 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid rgb(84, 84, 84);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -105,8 +102,85 @@ button:focus-visible {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+/* Custom button styles để override mọi CSS khác */
+.netflix-button {
+  font-weight: 900 !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+  text-shadow: 0 0 1px rgba(0,0,0,0.5) !important;
+}
+
+.netflix-button span {
+  font-weight: 600 !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Custom description text style */
+.netflix-description {
+  color: white !important;
+  text-align: left !important;
+  font-size: 1.2vw !important;
+  font-weight: 400 !important;
+  line-height: normal !important;
+  margin-top: 0.1vw !important;
+  width: 100% !important;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.45) !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
 .btn-1 {
   display: flex;
   flex-direction: column;
 }
+
+/* Animation cho video fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Netflix Maturity Rating Styles */
+.maturity-rating {
+  align-items: center;
+  background-color: rgba(51, 51, 51, 0.6);
+  border: 3px #dcdcdc;
+  border-left-style: solid;
+  box-sizing: border-box;
+  display: inline-flex;
+  font-size: 1.1vw;
+  height: 2.4vw;
+  padding: 0.5vw 3.5vw 0.5vw 0.8vw;
+  min-height: 24px;
+  min-width: 40px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.maturity-number {
+  font-size: inherit;
+  font-weight: 700;
+  line-height: 1;
+}
+
+@media screen and (max-width: 840px) {
+  .maturity-rating {
+    font-size: 14px;
+    height: 24px;
+    padding: 4px 12px 4px 6px;
+  }
+}
+
+/* Layer Transition Animations */
+@keyframes shrink {
+    0% { transform: scale(1); }
+    100% { transform: scale(0.6); }
+  }
 

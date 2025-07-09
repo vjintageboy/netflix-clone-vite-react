@@ -30,7 +30,7 @@ export default function Afterlogin() {
       </div>
 
       <div className="mt-8">
-        <button onClick={() => navigate("/home")} className="!border-gray-400 !text-gray-400 hover:!text-white hover:!border-white !rounded-none">Quản lý hồ sơ</button>
+        <button onClick={() => navigate("/home")} className="border-gray-400 text-gray-400 hover:text-white hover:border-white rounded-none">Quản lý hồ sơ</button>
       </div>
     </div>
   )
