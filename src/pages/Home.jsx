@@ -1,6 +1,6 @@
 import '../index.css'
 import bg1 from "../assets/home/1234.webp"
-import vd1 from "../assets/home/0708.mp4"
+import vd1 from "../assets/home/smaller-0708.mp4"
 import Navbar from './Navbar.jsx'
 import Layer from './Layer.jsx'
 import { useState, useEffect } from "react";
