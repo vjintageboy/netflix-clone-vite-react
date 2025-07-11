@@ -1,3 +1,19 @@
+/* Hide scrollbar for NetflixSlider */
+.netflix-slider-hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.netflix-slider-hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+/* Hide scrollbar for NetflixSlider */
+.netflix-slider-hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.netflix-slider-hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
 @import "tailwindcss";
 .container {
   display: flex;
