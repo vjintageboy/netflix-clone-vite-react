@@ -184,3 +184,62 @@ button:focus-visible {
     100% { transform: scale(0.6); }
   }
 
+/* Dialog Animation */
+@keyframes fadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-10px) scale(0.95); 
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+@keyframes fadeOut {
+  0% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateY(-10px) scale(0.95); 
+  }
+}
+
+.dialog-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.dialog-fade-out {
+  animation: fadeOut 0.2s ease-in forwards;
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom scrollbar for dialog */
+.dialog-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dialog-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.dialog-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.dialog-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+

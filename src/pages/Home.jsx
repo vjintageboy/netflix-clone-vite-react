@@ -5,6 +5,7 @@ import Navbar from "./Navbar.jsx";
 import Layer from "./Layer.jsx";
 import MovieSlider from "./MovieSlider.jsx";
 import Top10MoviesSlider from "./Top10MoviesSlider.jsx";  
+import PreviewDialog from "./PreviewDialog.jsx";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -205,31 +206,18 @@ export default function Home() {
       
       {/* Additional MovieSliders section - appears after hero section */}
       <div className="bg-black py-8 space-y-12">
-
         <MovieSlider endpoint="movie/popular" title="Popular Movies" />
-
-
         <MovieSlider endpoint="movie/top_rated" title="Top Rated Movies" />
-
-
         <MovieSlider endpoint="movie/now_playing" title="Now Playing" />
-
-
         <Top10MoviesSlider timeWindow="week" title="Top 10 trending tuần này" />
-
-
         <MovieSlider endpoint="movie/upcoming" title="Upcoming Movies" />
-        
-
         <MovieSlider endpoint="tv/popular" title="Popular TV Shows" />
-
-
         <MovieSlider endpoint="tv/top_rated" title="Top Rated TV Shows" />
-
-
         <MovieSlider endpoint="trending/all/week" title="Trending This Week" />
       </div>
-    
+
+      {/* Preview Dialog - Đặt ở cuối để có z-index cao nhất */}
+      <PreviewDialog />
     </>
   );
 }
