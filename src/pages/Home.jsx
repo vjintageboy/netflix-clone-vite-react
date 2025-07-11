@@ -6,6 +6,7 @@ import Layer from "./Layer.jsx";
 import MovieSlider from "./MovieSlider.jsx";
 import Top10MoviesSlider from "./Top10MoviesSlider.jsx";  
 import PreviewDialog from "./PreviewDialog.jsx";
+import Footer from "./Footer.jsx";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -216,6 +217,10 @@ export default function Home() {
         <MovieSlider endpoint="trending/all/week" title="Trending This Week" />
       </div>
 
+      {/* Footer */}
+      <div className="justify-center items-center flex w-full bg-black">
+      <Footer />
+</div>
       {/* Preview Dialog - Đặt ở cuối để có z-index cao nhất */}
       <PreviewDialog />
     </>
