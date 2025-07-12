@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import bg5 from "../../assets/profile/profile5.jpeg"
 import { faBorderNone } from '@fortawesome/free-solid-svg-icons';
 import SearchBox from './SearchBox';
+import icon from "../../assets/home/caret_icon.svg"
 
 // CSS để loại bỏ outline cho tất cả button
 const buttonStyles = `
@@ -95,7 +96,7 @@ export default function Navbar() {
 
                 {/* Avatar */}
                 <a
-                    href="/home"
+                    href="/profiles"
                     className="relative group flex items-center space-x-1"
                     aria-label="Tài khoản & cài đặt"
                 >
@@ -104,7 +105,9 @@ export default function Navbar() {
                         alt="Avatar"
                         className="w-8 h-8 rounded cursor-pointer"
                     />
-                    <span className="caret group-hover:inline-block">&#9662;</span>
+                    <span className="caret group-hover:inline-block">
+                        <img src={icon} alt="dropdown" className="w-3 h-3" />
+                    </span>
                 </a>
                 </div>
             </div>

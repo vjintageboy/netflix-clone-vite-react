@@ -5,6 +5,8 @@ export { default as SearchBox } from './layout/SearchBox';
 
 // Hero components
 export { default as Layer } from './hero/Layer';
+export { default as VideoControls } from './hero/VideoControls';
+export { useVideoPlayer } from './hero/useVideoPlayer';
 
 // Movie components
 export { default as MovieSlider } from './movie/MovieSlider';

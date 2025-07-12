@@ -152,7 +152,7 @@ export default function SearchBox() {
             
             {/* Search Results Dropdown */}
             {isSearchOpen && (searchResults.length > 0 || isLoading) && (
-                <div className="absolute top-full left-0 right-0 mt-2 bg-black border border-gray-600 rounded-lg shadow-2xl max-h-[500px] overflow-y-auto z-50 w-[400px]">
+                <div className="absolute top-full right-0 mt-2 bg-black border border-gray-600 rounded-lg shadow-2xl max-h-[900px] overflow-y-auto z-50 w-5xl">
                     {isLoading ? (
                         <div className="p-6 text-center text-gray-400">
                             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto mb-3"></div>
