@@ -1,7 +1,7 @@
-import ytb from "../assets/footer/youtube_icon.png";
-import fb from "../assets/footer/facebook_icon.png";
-import ig from "../assets/footer/instagram_icon.png";
-import tw from "../assets/footer/twitter_icon.png";
+import ytb from "../../assets/footer/youtube_icon.png";
+import fb from "../../assets/footer/facebook_icon.png";
+import ig from "../../assets/footer/instagram_icon.png";
+import tw from "../../assets/footer/twitter_icon.png";
 
 export default function Footer() {
   const socialLinks = [
@@ -105,4 +105,3 @@ export default function Footer() {
     </footer>
   );
 }
-

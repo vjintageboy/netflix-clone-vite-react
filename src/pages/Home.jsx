@@ -1,12 +1,12 @@
 import "../index.css";
 import bg1 from "../assets/home/1234.webp";
 import vd1 from "../assets/home/smaller-0708.mp4";
-import Navbar from "./Navbar.jsx";
-import Layer from "./Layer.jsx";
-import MovieSlider from "./MovieSlider.jsx";
-import Top10MoviesSlider from "./Top10MoviesSlider.jsx";  
-import PreviewDialog from "./PreviewDialog.jsx";
-import Footer from "./Footer.jsx";
+import Navbar from "../components/layout/Navbar.jsx";
+import Layer from "../components/hero/Layer.jsx";
+import MovieSlider from "../components/movie/MovieSlider.jsx";
+import Top10MoviesSlider from "../components/movie/Top10MoviesSlider.jsx";  
+import PreviewDialog from "../components/movie/PreviewDialog.jsx";
+import Footer from "../components/layout/Footer.jsx";
 import { useState, useEffect } from "react";
 
 export default function Home() {

@@ -1,7 +1,7 @@
-import "../index.css";
-import "../App.css";
+import "../../index.css";
+import "../../App.css";
 import { useRef, useState, useEffect } from "react";
-import { useDialog } from '../context/DialogContext';
+import { useDialog } from '../../context/DialogContext';
 
 export default function Top10Slider({ items, title = "Top 10 Movies" }) {
   const sliderRef = useRef(null);

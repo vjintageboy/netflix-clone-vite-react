@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Top10Slider from "./Top10Slider";
 
-const API_KEY = "c081383e7c25ce3136312afffe807a50";
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 export default function Top10MoviesSlider() {
   const [top10Items, setTop10Items] = useState([]);

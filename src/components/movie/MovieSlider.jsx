@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import NetflixSlider from "./NetflixSlide";
+import NetflixSlider from "./NetflixSlider";
 
-const API_KEY = "c081383e7c25ce3136312afffe807a50"; 
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY; 
 
 export default function MovieSlider({ 
   endpoint = "trending/movie/week", 

@@ -1,4 +1,4 @@
-import { useDialog } from '../context/DialogContext';
+import { useDialog } from '../../context/DialogContext';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 

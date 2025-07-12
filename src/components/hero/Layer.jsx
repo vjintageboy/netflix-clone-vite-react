@@ -1,5 +1,5 @@
-import ly1 from "../assets/layer/layer1.webp";
-import "../index.css";
+import ly1 from "../../assets/layer/layer1.webp";
+import "../../index.css";
 import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 export default function Layer({ isPlay }) {
