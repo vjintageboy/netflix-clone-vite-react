@@ -2,9 +2,22 @@ import { useEffect, useState } from 'react';
 import bg5 from "../assets/profile/profile5.jpeg"
 import { faBorderNone } from '@fortawesome/free-solid-svg-icons';
 
+// CSS để loại bỏ outline cho tất cả button
+const buttonStyles = `
+  button:focus,
+  button:active,
+  button:focus-visible {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+`;
+
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
-    const [notifications, setNotifications] = useState(3); 
+    const [notifications, setNotifications] = useState(3);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState(''); 
 
     useEffect(() => {
         const onScroll = () => {
@@ -12,6 +25,51 @@ export default function Navbar() {
         };
         window.addEventListener('scroll', onScroll);
         return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    const handleSearchToggle = () => {
+        setIsSearchOpen(!isSearchOpen);
+        if (isSearchOpen) {
+            setSearchQuery('');
+        }
+    };
+
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        if (searchQuery.trim()) {
+            // Xử lý tìm kiếm ở đây
+            console.log('Searching for:', searchQuery);
+        }
+    };
+
+    const handleClickOutside = (e) => {
+        if (!e.target.closest('.search-container')) {
+            setIsSearchOpen(false);
+            setSearchQuery('');
+        }
+    };
+
+    useEffect(() => {
+        if (isSearchOpen) {
+            document.addEventListener('click', handleClickOutside);
+        } else {
+            document.removeEventListener('click', handleClickOutside);
+        }
+        
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [isSearchOpen]);
+
+    // Inject CSS to remove button outlines
+    useEffect(() => {
+        const style = document.createElement('style');
+        style.textContent = buttonStyles;
+        document.head.appendChild(style);
+        
+        return () => {
+            document.head.removeChild(style);
+        };
     }, []);
 
     return (
@@ -40,26 +98,56 @@ export default function Navbar() {
                 {/* Right side - Search, Notifications, Avatar */}
                 <div className="flex items-center gap-4">
                 {/* Search */}
-                <button className="hover:opacity-80 transition-opacity !bg-transparent !pr-3 !border-none" aria-label="Tìm kiếm">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        height="24"
-                        className="text-white"
-                    >
-                        <path
-                            fill="currentColor"
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10ZM15.6177 17.0319C14.078 18.2635 12.125 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 12.125 18.2635 14.078 17.0319 15.6177L22.7071 21.2929L21.2929 22.7071L15.6177 17.0319Z"
-                        ></path>
-                    </svg>
-                </button>
+                <div className="search-container relative">
+                    <form onSubmit={handleSearchSubmit} className="flex items-center">
+                        <div className={`flex items-center transition-all duration-300 ${
+                            isSearchOpen ? 'bg-black border border-white' : 'bg-transparent'
+                        }`}>
+                            <input
+                                type="text"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                placeholder="Phim, diễn viên, thể loại..."
+                                className={`bg-transparent text-white placeholder-gray-400 outline-none focus:outline-none focus:ring-0 transition-all duration-300 ${
+                                    isSearchOpen ? 'w-60 px-3 py-2' : 'w-0 px-0'
+                                }`}
+                                style={{
+                                    opacity: isSearchOpen ? 1 : 0,
+                                }}
+                            />
+                            <button 
+                                type="button"
+                                onClick={handleSearchToggle}
+                                className="hover:opacity-80 transition-opacity !bg-transparent !pr-3 !border-none flex items-center justify-center focus:outline-none focus:ring-0"
+                                style={{ outline: 'none', border: 'none' }}
+                                aria-label="Tìm kiếm"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                    height="24"
+                                    className="text-white"
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        fillRule="evenodd"
+                                        clipRule="evenodd"
+                                        d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10ZM15.6177 17.0319C14.078 18.2635 12.125 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10C19 12.125 18.2635 14.078 17.0319 15.6177L22.7071 21.2929L21.2929 22.7071L15.6177 17.0319Z"
+                                    ></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
 
                 {/* Notifications */}
-                <button className="relative hover:opacity-80 transition-opacity !bg-transparent !pl-0 !border-none" aria-label="Thông báo">
+                <button 
+                    className="relative hover:opacity-80 transition-opacity !bg-transparent !pl-0 border-none focus:outline-none focus:ring-0" 
+                    style={{ outline: 'none', border: 'none' }}
+                    aria-label="Thông báo"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
