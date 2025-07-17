@@ -10,4 +10,7 @@ export default defineConfig({
     tailwindcss(),
     [tsconfigPaths()]
   ],
+  build: {
+    assetsInlineLimit: 0, 
+  },
 })

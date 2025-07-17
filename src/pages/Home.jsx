@@ -85,14 +85,14 @@ export default function Home() {
       
       {/* Additional MovieSliders section - appears after hero section */}
       <div className="bg-black py-8 space-y-12">
-        <MovieSlider endpoint="movie/popular" title="Popular Movies" />
-        <MovieSlider endpoint="movie/top_rated" title="Top Rated Movies" />
-        <MovieSlider endpoint="movie/now_playing" title="Now Playing" />
+        <MovieSlider endpoint="movie/popular" title="Phim Nổi Bật" />
+        <MovieSlider endpoint="movie/top_rated" title="Phim Đánh Giá Cao" />
+        <MovieSlider endpoint="movie/now_playing" title="Phim Đang Chiếu" />
         <Top10MoviesSlider timeWindow="week" title="Top 10 trending tuần này" />
-        <MovieSlider endpoint="movie/upcoming" title="Upcoming Movies" />
-        <MovieSlider endpoint="tv/popular" title="Popular TV Shows" />
-        <MovieSlider endpoint="tv/top_rated" title="Top Rated TV Shows" />
-        <MovieSlider endpoint="trending/all/week" title="Trending This Week" />
+        <MovieSlider endpoint="movie/upcoming" title="Phim Sắp Chiếu" />
+        <MovieSlider endpoint="tv/popular" title="Chương Trình TV Nổi Bật" />
+        <MovieSlider endpoint="tv/top_rated" title="Chương Trình TV Đánh Giá Cao" />
+        <MovieSlider endpoint="trending/all/week" title="Xu Hướng Tuần Này" />
       </div>
 
       {/* Footer */}

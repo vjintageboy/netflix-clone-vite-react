@@ -5,7 +5,7 @@ const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 export default function MovieSlider({ 
   endpoint = "trending/movie/week", 
-  title = "Trending Movies" 
+  title = "Phim Xu Hướng" 
 }) {
   const [items, setItems] = useState([]);
   const API_URL = `https://api.themoviedb.org/3/${endpoint}?api_key=${API_KEY}&language=vi-VN&page=1`;
