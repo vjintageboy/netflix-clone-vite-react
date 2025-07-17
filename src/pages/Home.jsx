@@ -1,6 +1,5 @@
 import "../index.css";
 import bg1 from "../assets/home/1234.webp";
-import vd1 from "../assets/home/smaller-0708.mp4";
 import Navbar from "../components/layout/Navbar.jsx";
 import Layer from "../components/hero/Layer.jsx";
 import VideoControls from "../components/hero/VideoControls.jsx";
@@ -41,8 +40,8 @@ export default function Home() {
         {/* Video layer */}
         {isReady && !videoEnded && (
           <video
+            src="/assets/home/smaller-0708.mp4"
             ref={handleVideoLoad}
-            src={vd1}
             playsInline
             muted={isMuted}
             preload="auto"
