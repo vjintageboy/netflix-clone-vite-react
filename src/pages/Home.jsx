@@ -15,8 +15,11 @@ export default function Home() {
     isReady,
     videoEnded,
     isMuted,
+    isVideoLoaded,
     handleVideoEnd,
     handleVideoLoad,
+    handleVideoCanPlayThrough,
+    handleVideoLoadedData,
     toggleMute,
     handleReplay,
   } = useVideoPlayer();
@@ -40,20 +43,14 @@ export default function Home() {
         {/* Video layer */}
         {isReady && !videoEnded && (
           <video
-            src="/assets/home/smaller-0708.mp4"
+            src="https://res.cloudinary.com/dveq3qzvz/video/upload/v1752762789/smaller-0708_jnifu2.mp4"
             ref={handleVideoLoad}
             playsInline
             muted={isMuted}
             preload="auto"
             onEnded={handleVideoEnd}
-            onCanPlay={(e) => {
-              console.log("Video can play, forcing play...");
-              e.target.play().catch((err) => console.log("Play error:", err));
-            }}
-            onLoadedData={(e) => {
-              console.log("Video loaded, trying to play...");
-              e.target.play().catch((err) => console.log("Play error:", err));
-            }}
+            onCanPlayThrough={handleVideoCanPlayThrough}
+            onLoadedData={handleVideoLoadedData}
             onError={(e) => console.log("Video error:", e)}
             className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-0 animate-fade-in"
             style={{ animation: "fadeIn 1s ease-in-out forwards" }}
